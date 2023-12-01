@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/********* CSS Variables **********/
+:root {
+    --primary-color: #38618c;
+    --secondary-color: #ff5964;
+    --complementary-color: #ffe74c;
+}
+
+
+/********* CSS Reset **********/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+} 
+
+
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+} 
+
+
+input,
+button,
+optgroup,
+textarea,
+select {
+    font: inherit;
+} 
+
+
+html:focus-within {
+    scroll-behavior: smooth;
+} 
+
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: Archivo Narrow;
+    user-select: none;
+} 
+
+
+a {
+    color: var(--complementary-color);
+    font-size: 2em;
+    &:hover {
+        color: var(--secondary-color);
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/********* CSS Utility Classes **********/
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/********* Basic Styling **********/
+.btn {
+    background-color: var(--complementary-color);
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    display: inline-block;
+    margin: 4px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    width: 60vw;
+    height: 40vh;
+}
+.ripple {
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    cursor: normal;
+}
+.ripple .ripple-effect {
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_field {
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #d8d8d8;
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    width: 80px;
+    outline: none;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2050%2067%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20stroke-width%3D%222%22%3E%3Cline%20x1%3D%221%22%20x2%3D%2250%22%20y1%3D%2233.5%22%20y2%3D%2233.5%22%20stroke%3D%22%23D8D8D8%22%2F%3E%3Cpolyline%20transform%3D%22translate(25%2020)%20rotate(45)%20translate(-25%20-20)%22%20points%3D%2219%2026%2019%2014%2032%2014%22%20stroke%3D%22%23000%22%2F%3E%3Cpolyline%20transform%3D%22translate(25%2045)%20rotate(225)%20translate(-25%20-45)%22%20points%3D%2219%2052%2019%2039%2032%2039%22%20stroke%3D%22%23000%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-position: center right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    caret-color: transparent;
+
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        border-width: 0px;
+        margin: 0;
+        border-left: 1px solid #d8d8d8;
+        height: 34px;
+        width: 23px;
+        cursor: pointer;
+    }
+}
+
+
+button {
+    font-family: inherit;
+    border: none;
+    outline: 1px dotted rgb(37, 37, 37);
+    outline-offset: -4px;
+    background: hsl(0deg 0% 75%);
+    box-shadow: inset -1px -1px #292929, inset 1px 1px #fff, inset -2px -2px rgb(158, 158, 158), inset 2px 2px #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 30px;
+}
+
+button:active {
+    box-shadow: inset -1px -1px #fff, inset 1px 1px #292929, inset -2px -2px #ffffff, inset 2px 2px rgb(158, 158, 158);
+}
+
+.custom_Sec_parent {
+    border-left: 1px solid rgb(158, 158, 158);
+    padding-left: 2em;
+}
+
+.title {
+    margin-top: 4rem;
+    font-size: 4rem;
+}
+
+
+header {
+    gap: 4em;
+}
+
+
+.instructions {
+    margin-top: 3em;
+    font-size: 2rem;
+}
+
+
+.seconds_options {
+    margin-top: 2em;
+    gap: 2em;
+}
+
+.click-area {
+    margin-top: 4em;
+}
+
+.submit_btn {
+    margin-left: 2em;
+}
+
+.score {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}

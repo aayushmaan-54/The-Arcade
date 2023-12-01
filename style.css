@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/********* CSS Variable **********/
+:root {
+    --light--bg: #fcfcfd;
+    --light--fg: #0c111d;
+    --dark--fg: #fcfcfd;
+    --dark--bg: #0c111d;
+    --purple: #675bce;
+    --pink: #e9b2e8;
+    --blue: #3b84ee;
+    --orange: #ee9d88;
+}
+
+
+/********* CSS Reset **********/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+} 
+
+
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+} 
+
+
+input,
+button,
+optgroup,
+textarea,
+select {
+    font: inherit;
+} 
+
+
+html:focus-within {
+    scroll-behavior: smooth;
+} 
+
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: 'Playfair Display', serif;
+    font-family: Archivo Narrow;
+    max-width: 100vw;
+    max-height: 100vh;
+    transition: all .2s linear; 
+    user-select: none;
+    cursor: none;
+} 
+
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+::selection {
+    color: var(--orange);
+    background-color: var(--purple);
+}
+
+/********* CSS Utility Classes **********/
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.purple_text {
+    color: var(--purple);
+}
+
+.pink_text{
+    color: var(--pink);
+}
+
+.orange_text {
+    color: var(--orange);
+}
+
+.blue_text {
+    color: var(--blue);
+}
+
+
+.grad_border {
+    border: 0.1px solid red;
+    border-image-slice: 1;
+    border-width: 0.1px;
+    border-image-source: linear-gradient(
+        90deg,
+        hsl(246deg 54% 58%) 0%,
+        hsl(263deg 54% 63%) 9%,
+        hsl(277deg 53% 69%) 19%,
+        hsl(291deg 53% 76%) 31%,
+        hsl(293deg 57% 79%) 42%,
+        hsl(269deg 65% 77%) 54%,
+        hsl(246deg 72% 75%) 65%,
+        hsl(223deg 81% 65%) 75%,
+        hsl(256deg 62% 69%) 83%,
+        hsl(316deg 54% 66%) 90%,
+        hsl(347deg 77% 73%) 96%,
+        hsl(12deg 75% 73%) 100%);
+}
+
+
+.hr-line {     
+    width: 100%;
+    height: 2px;
+    background-color: var(--purple);
+    background-image: linear-gradient(
+    90deg,
+    hsl(246deg 54% 58%) 0%,
+    hsl(263deg 54% 63%) 9%,
+    hsl(277deg 53% 69%) 19%,
+    hsl(291deg 53% 76%) 31%,
+    hsl(293deg 57% 79%) 42%,
+    hsl(269deg 65% 77%) 54%,
+    hsl(246deg 72% 75%) 65%,
+    hsl(223deg 81% 65%) 75%,
+    hsl(256deg 62% 69%) 83%,
+    hsl(316deg 54% 66%) 90%,
+    hsl(347deg 77% 73%) 96%,
+    hsl(12deg 75% 73%) 100%);
+}
+
+/********* Links Styling **********/
+.links {
+    all: unset;
+    font-size: 2em;
+    cursor: none;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 88%;
+    width: fit-content;
+    transition: background-size 0.25s ease-in;
+    transition: all .4s linear; 
+    user-select: none;
+    &:hover {
+        background-size: 100% 88%;
+
+        ~ .cursor {
+            transform: scale(1.4);
+            mix-blend-mode: difference;
+            background: white;
+        }
+    }
+}
+
+
+/********* Dark-Light Mode **********/
+body {
+    background-color: var(--light--bg);
+    color: var(--light--fg);
+}
+
+
+.dark {
+    --light--fg: var(--dark--fg);
+    --light--bg: var(--dark--bg);
+}
+
+
+/********* Styling **********/
+.logo-img {
+    width: 5em;
+
+    &:hover {
+        animation: tiltAnimation 1s ease-in-out infinite;
+    }
+}
+
+.nav-parent {
+    justify-content: space-between;
+}
+
+.container {
+    margin: 1em 2em;
+}
+
+.hero_heading {
+    background: -webkit-linear-gradient(
+        90deg,
+        var(--blue) 0%,
+        var(--purple) 75%,
+        var(--pink) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 6em;
+    text-align: center;
+}
+
+
+.games_grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+
+.game_hrLine {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.gridBox {
+    padding: 2em;
+    max-width: 600px;
+}
+
+
+.grid_text {
+    font-size: 1.2em;
+}
+
+.gameName_grid {
+    margin-bottom: 20px;
+}
+
+/********* Animations **********/
+@keyframes tiltAnimation {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+
+@media (max-width: 460px) {
+    html{
+        font-size: 13px;
+    }
+
+    .logo-img {
+        width: 3em;
+    }
+    
+}
+
+
+/********* Custom Cursor **********/
+.cursor {
+    width:40px;
+    height:40px;
+    border:3px solid var(--light--fg);
+    border-radius:50%;
+    position: absolute;
+    box-shadow: 2px -3px 41px -1px var(--light--fg);
+    transition: all .1s linear; 
+    pointer-events: none;
+}

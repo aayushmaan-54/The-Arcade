@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XTRA,YTAS,YTLC@8..144,-10,151,910,-147,603,854,570;8..144,0,100,400,0,468,750,514&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/******** CSS Variables ********/
+:root {
+    --primary-color: 256, 54%, 7%; 
+    --secondary-color: 239, 100%, 68%;
+    --complementory-color: 128, 100%, 68%;
+    --grid-color: rgb(255, 255, 255);
+}
+
+/******** CSS Reset ********/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+} 
+
+
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+
+svg {
+    max-width: 100%;
+}
+
+
+img,
+picture,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+} 
+
+
+input,
+button,
+optgroup,
+textarea,
+select {
+    font: inherit;
+} 
+
+
+html:focus-within {
+    scroll-behavior: smooth;
+} 
+
+
+body {
+    font-family: 'Roboto Flex', sans-serif;
+    max-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+} 
+
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+} 
+
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/******** Basic Styling ********/
+body {
+    background-image: url(assets/bg.png);
+    background-color: hsl(var(--primary-color));
+    color: #fff;
+}
+
+
+::selection {
+    color: hsl(var(--secondary-color));
+    background: hsl(var(--complementory-color));
+}
+
+
+h1 {
+    font-size: 5rem;
+    margin: 0.4em 0 1em 0;
+}
+
+
+h1 {
+    .var_font_first {
+        font-variation-settings: 'slnt' 0, 'wdth' 100, 'wght' 400;
+        color: hsl(var(--secondary-color));
+    }
+
+    .var_font_second {
+        font-variation-settings: 'slnt' -10, 'wdth' 151, 'wght' 910, 'GRAD' 0, 'XTRA'  468, 'YTAS'  750, 'YTDE'  -203, 'YTFI'  738, 'XTRA'  468;
+        color: hsl(var(--complementory-color));
+    }
+
+    &:hover {
+        .var_font_first {
+            font-variation-settings: 'slnt' -10, 'wdth' 151, 'wght' 910, 'GRAD' 0, 'XTRA'  468, 'YTAS'  750, 'YTDE'  -203, 'YTFI'  738, 'XTRA'  468;
+        }
+
+        .var_font_second {
+            font-variation-settings: 'slnt' 0, 'wdth' 100, 'wght' 400;
+        }
+    }
+}
+
+
+.game-board {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 9vmin;      /* TODO: change its value to make responsive */
+    margin-bottom: 1em;
+}
+
+
+.row-1, .row-2, .row-3 {
+    text-align: center;
+}
+
+
+.grid {
+    max-width: 150px;
+    max-height: 150px;
+    width: 10vw;
+    height: 10vw;
+    border: 1px solid hsl(var(--complementory-color));
+    cursor: pointer;
+}
+
+
+.remove-left-border {
+    border-left: 1px solid transparent;
+}
+
+.remove-right-border {
+    border-right: 1px solid transparent;
+}
+
+.remove-top-border {
+    border-top: 1px solid transparent;
+}
+
+.remove-bottom-border {
+    border-bottom: 1px solid transparent;
+}
+
+.playerChanceStatus {
+    display: none;
+    gap: 100px;
+}
+
+
+.playerChanceStatus p span {
+    font-family: 'Permanent Marker', cursive;
+}
+
+/******** Restart Button **********/
+.button {
+    color: black;
+    background-color: hsl(var(--complementory-color));
+    font-weight: 500;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    text-align: center;
+    margin-right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+}
+
+
+.button svg {
+    display: inline;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.75rem;
+    color: black;
+}
+
+
+.button:focus svg {
+    animation: spin_357 0.5s linear;
+}
+
+@keyframes spin_357 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.restart-btn {
+    &:hover {
+        .button svg {
+            color: #fff;
+        }
+
+        .button:hover {
+            background-color: hsl(var(--secondary-color));
+            color: #fff;
+        }
+    }
+}
+
+
+.restart-btn {
+    margin-top: 3em;
+}
+
+
+.scoreBoard {
+    width: 70vw;
+    height: 50vw;
+    background-color: hsl(var(--secondary-color));
+    font-family: 'Permanent Marker', cursive;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.scoreBoard a {
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+/******** utility classes **********/
+.cannotuse {
+    cursor: not-allowed;
+}
+
+
+.center {
+    margin: 0 auto;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,14 @@
+☑️Try again on red, yellow, green => inner.HTML === try again
+☑️when score is calculated button should change to Play again🔄️
+☑️when score is calculated & user tap once again score should not be calculated or change
+☑️score >= 100ms 🚀       score > 100ms && 250ms 🛩️          score > 251ms 🛺
+☑️traffic light, bg-color change when randomly traffic light changes & when resetting
+
+✅
+
+click start game 
+    flagStatus = flags.START
+    changes button to reset game
+    randomly change bg, traffic light
+    _ _ms
+

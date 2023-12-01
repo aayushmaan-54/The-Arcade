@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
+    <title>TimeTap Triumph</title>
+</head>
+<body>
+    <div class="container">
+        <header class="flex-row">
+            <img src="assets/favicon.png" alt="Logo" draggable="false" width="155rem">
+            <h1 class="title">TimeTap Triumph</h1>
+        </header>
+        <div class="seconds instructions">🖱️Click as many times as you can!</div>
+        <div class="seconds_options flex-row">
+            <div class="sec-1"><a href="#">5s</a></div>
+            <div class="sec-2"><a href="#">10s</a></div>
+            <div class="sec-3"><a href="#">20s</a></div>
+            <div class="customSec sec-4 number-input">
+                <form class="custom_Sec_parent flex-row" id="form">
+                    <input type="number" min="20" max="300" step="5" placeholder="Sec" data-inc="5" class="input_field userInput" onKeyDown="return false" id="input_sec">
+                    <div class="submit_btn"><button>Submit</button></div>
+                </form>
+            </div>
+        </div>
+        <div class="box">
+            <div class="click-area btn ripple">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
